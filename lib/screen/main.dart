@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/home.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/pill_remainder/home.dart';
+import 'package:medi_remainder/screen/profile.dart';
+import 'package:medi_remainder/my_theme.dart';
 import 'package:pandabar/pandabar.dart';
 
 class Main extends StatefulWidget {
-  Main({Key? key, go_back = true}) : super(key: key);
+  Main({Key? key, go_back}) : super(key: key);
 
   bool go_back = false;
 
@@ -15,13 +17,9 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  var _children = [Home(), Home(), Home(), Home(), Home()];
+  final _children = [Home(), Profile(), Profile(), Profile(), Profile()];
 
   void onTapped(int i) {
-    // if (!is_logged_in.$ && (i == 4 || i == 3)) {
-    //   Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-    //   return;
-    // }
     setState(() {
       _currentIndex = i;
     });
@@ -41,7 +39,7 @@ class _MainState extends State<Main> {
     return Scaffold(
       extendBody: true,
       body: _children[_currentIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       //specify the location of the FAB
       // floatingActionButton: Visibility(
       //   visible: MediaQuery.of(context).viewInsets.bottom ==
@@ -80,7 +78,7 @@ class _MainState extends State<Main> {
         ),
         buttonData: [
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
+          PandaBarButtonData(id: 1, icon: Icons.person, title: 'Profile'),
           PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
           PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
         ],

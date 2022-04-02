@@ -1,4 +1,4 @@
-# flutter_project
+# medi_remainder
 
 A new Flutter project.
 

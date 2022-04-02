@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/screen/main.dart';
-import 'package:flutter_project/screen/profile.dart';
+import 'package:medi_remainder/screen/main.dart';
+import 'package:medi_remainder/screen/profile.dart';
 
 
 class MainDrawer extends StatefulWidget {
@@ -56,114 +56,115 @@ class _MainDrawerState extends State<MainDrawer> {
               //                 ? Text("${user_email.value}")
               //                 : Text("${user_phone.value}"))
               //     : 
-                  Text('Not logged in',
-                      style: TextStyle(
-                          color: Color.fromRGBO(153, 153, 153, 1),
-                          fontSize: 14)),
-              Divider(),
-              ListTile(
-                  visualDensity: VisualDensity(horizontal: -4, vertical: -4),
-                  leading: Image.asset("assets/icons/home.png",
-                      height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                  title: Text('Home',
-                      style: TextStyle(
-                          color: Color.fromRGBO(153, 153, 153, 1),
-                          fontSize: 14)),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Main();
-                    }));
-                  }),
-              // is_logged_in.value == true
-              is_logged_in  == true
-                  ? ListTile(
-                      visualDensity:
-                          VisualDensity(horizontal: -4, vertical: -4),
-                      leading: Image.asset("assets/icons/profile.png",
-                          height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Profile',
-                          style: TextStyle(
-                              color: Color.fromRGBO(153, 153, 153, 1),
-                              fontSize: 14)),
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Profile(show_back_button: true);
-                        }));
-                      })
-                  : Container(),
-              // (is_logged_in.value == true)
-              is_logged_in  == true
-                  ? ListTile(
-                      visualDensity:
-                          VisualDensity(horizontal: -4, vertical: -4),
-                      leading: Image.asset("assets/icons/chat.png",
-                          height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('AI COuncellor',
-                          style: TextStyle(
-                              color: Color.fromRGBO(153, 153, 153, 1),
-                              fontSize: 14)),
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return MessengerList();
-                        // }));
-                      })
-                  : Container(),
-              Divider(height: 24),
-               ListTile(
-                  visualDensity: VisualDensity(horizontal: -4, vertical: -4),
-                  leading: Icon(
-                    Icons.import_contacts_outlined,
-                  // Image.asset("assets/login.png",
-                      size: 16, color: Color.fromRGBO(153, 153, 153, 1)
-                      // ),
-                  ),
-                  title: Text('About Us',
-                      style: TextStyle(
-                          color: Color.fromRGBO(153, 153, 153, 1),
-                          fontSize: 14)),
-                  onTap: () {
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) {
-                    //   return AboutUs();
-                    // }));
-                  }),
-              Divider(height: 24),
-              // is_logged_in.value == false
-              is_logged_in  == false
-                  ? ListTile(
-                      visualDensity:
-                          VisualDensity(horizontal: -4, vertical: -4),
-                      leading: Image.asset("assets/icons/login.png",
-                          height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Login',
-                          style: TextStyle(
-                              color: Color.fromRGBO(153, 153, 153, 1),
-                              fontSize: 14)),
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return Login();
-                        // }));
-                      })
-                  : Container(),
-              // is_logged_in.value == true
-              is_logged_in  == true
-                  ? ListTile(
-                      visualDensity:
-                          VisualDensity(horizontal: -4, vertical: -4),
-                      leading: Image.asset("assets/logout.png",
-                          height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Logout',
-                          style: TextStyle(
-                              color: Color.fromRGBO(153, 153, 153, 1),
-                              fontSize: 14)),
-                      onTap: () {
-                        onTapLogout(context);
-                      })
-                  : Container(),
+              //     Text('Not logged in',
+              //         style: TextStyle(
+              //             color: Color.fromRGBO(153, 153, 153, 1),
+              //             fontSize: 14)),
+              // Divider(),
+              // ListTile(
+              //     visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+              //     leading: Image.asset("assets/icons/home.png",
+              //         height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
+              //     title: Text('Home',
+              //         style: TextStyle(
+              //             color: Color.fromRGBO(153, 153, 153, 1),
+              //             fontSize: 14)),
+              //     onTap: () {
+              //       Navigator.push(context,
+              //           MaterialPageRoute(builder: (context) {
+              //         return Main();
+              //       }));
+              //     }),
+              // // is_logged_in.value == true
+              // is_logged_in  == true
+              //     ? ListTile(
+              //         visualDensity:
+              //             VisualDensity(horizontal: -4, vertical: -4),
+              //         leading: Image.asset("assets/icons/profile.png",
+              //             height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
+              //         title: Text('Profile',
+              //             style: TextStyle(
+              //                 color: Color.fromRGBO(153, 153, 153, 1),
+              //                 fontSize: 14)),
+              //         onTap: () {
+              //           Navigator.push(context,
+              //               MaterialPageRoute(builder: (context) {
+              //             return Profile(show_back_button: true);
+              //           }));
+              //         })
+              //     : Container(),
+              // // (is_logged_in.value == true)
+              // is_logged_in  == true
+              //     ? ListTile(
+              //         visualDensity:
+              //             VisualDensity(horizontal: -4, vertical: -4),
+              //         leading: Image.asset("assets/icons/chat.png",
+              //             height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
+              //         title: Text('AI COuncellor',
+              //             style: TextStyle(
+              //                 color: Color.fromRGBO(153, 153, 153, 1),
+              //                 fontSize: 14)),
+              //         onTap: () {
+              //           // Navigator.push(context,
+              //           //     MaterialPageRoute(builder: (context) {
+              //           //   return MessengerList();
+              //           // }));
+              //         })
+              //     : Container(),
+              // Divider(height: 24),
+              //  ListTile(
+              //     visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+              //     leading: Icon(
+              //       Icons.import_contacts_outlined,
+              //     // Image.asset("assets/login.png",
+              //         size: 16, color: Color.fromRGBO(153, 153, 153, 1)
+              //         // ),
+              //     ),
+              //     title: Text('About Us',
+              //         style: TextStyle(
+              //             color: Color.fromRGBO(153, 153, 153, 1),
+              //             fontSize: 14)),
+              //     onTap: () {
+              //       // Navigator.push(context,
+              //       //     MaterialPageRoute(builder: (context) {
+              //       //   return AboutUs();
+              //       // }));
+              //     }),
+              // Divider(height: 24),
+              // // is_logged_in.value == false
+              // is_logged_in  == false
+              //     ? ListTile(
+              //         visualDensity:
+              //             VisualDensity(horizontal: -4, vertical: -4),
+              //         leading: Image.asset("assets/icons/login.png",
+              //             height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
+              //         title: Text('Login',
+              //             style: TextStyle(
+              //                 color: Color.fromRGBO(153, 153, 153, 1),
+              //                 fontSize: 14)),
+              //         onTap: () {
+              //           // Navigator.push(context,
+              //           //     MaterialPageRoute(builder: (context) {
+              //           //   return Login();
+              //           // }));
+              //         })
+              //     : Container(),
+              // // is_logged_in.value == true
+              // is_logged_in  == true
+              //     ? ListTile(
+              //         visualDensity:
+              //             VisualDensity(horizontal: -4, vertical: -4),
+              //         leading: Image.asset("assets/logout.png",
+              //             height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
+              //         title: Text('Logout',
+              //             style: TextStyle(
+              //                 color: Color.fromRGBO(153, 153, 153, 1),
+              //                 fontSize: 14)),
+              //         onTap: () {
+              //           onTapLogout(context);
+              //         })
+                  // : 
+                  Container(),
             ],
           ),
         ),
