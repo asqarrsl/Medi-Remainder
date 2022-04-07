@@ -239,7 +239,7 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     });
   }
 
-  //SHOW DATE PICKER AND CHANGE CURRENT CHOOSE DATE
+  //SHOW DATE PICKER AND CHANGE THE CURRENTLY SELECTED DATE
   Future<void> openDatePicker() async {
     await showDatePicker(
             context: context,

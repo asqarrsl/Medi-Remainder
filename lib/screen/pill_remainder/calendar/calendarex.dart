@@ -216,5 +216,3 @@ class _CalendarExState extends State<CalendarEx> {
     );
   }
 }
-/* 
- */

@@ -19,13 +19,13 @@ class PlatformFlatButton extends StatelessWidget {
             color: color,
             onPressed: handler,
             borderRadius: BorderRadius.circular(15.0),
-          )
-        : FlatButton(
-            color: color,
-            child: buttonChild,
-            onPressed: handler,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0)),
-          );
+            )
+          : FlatButton(
+              color: color,
+              child: buttonChild,
+              onPressed: handler,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0)),
+            );
   }
 }

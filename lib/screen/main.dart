@@ -50,7 +50,7 @@ class _MainState extends State<Main> {
         ),
         buttonData: [
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
-          PandaBarButtonData(id: 1, icon: Icons.person, title: 'Profile'),
+          PandaBarButtonData(id: 1, icon: Icons.graphic_eq_sharp, title: 'Profile'),
           PandaBarButtonData(id: 4, icon: Icons.add_alert, title: 'Profile'),
           PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
         ],
