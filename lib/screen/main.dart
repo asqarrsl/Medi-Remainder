@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/home.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/pill_remainder/home.dart';
+import 'package:medi_remainder/screen/profile.dart';
+import 'package:medi_remainder/my_theme.dart';
 import 'package:pandabar/pandabar.dart';
 
 class Main extends StatefulWidget {
-  Main({Key? key, go_back = true}) : super(key: key);
+  Main({Key? key, go_back}) : super(key: key);
 
   bool go_back = false;
 
@@ -15,13 +17,9 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  var _children = [Home(), Home(), Home(), Home(), Home()];
+  final _children = [Home(), Profile(), Profile(), Profile(), Profile()];
 
   void onTapped(int i) {
-    // if (!is_logged_in.$ && (i == 4 || i == 3)) {
-    //   Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-    //   return;
-    // }
     setState(() {
       _currentIndex = i;
     });
@@ -29,8 +27,6 @@ class _MainState extends State<Main> {
   }
 
   void initState() {
-    // TODO: implement initState
-    //re appear statusbar in case it was not there in the previous page
     SystemChrome.setEnabledSystemUIOverlays(
         [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.initState();
@@ -41,32 +37,6 @@ class _MainState extends State<Main> {
     return Scaffold(
       extendBody: true,
       body: _children[_currentIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      //specify the location of the FAB
-      // floatingActionButton: Visibility(
-      //   visible: MediaQuery.of(context).viewInsets.bottom ==
-      //       0.0, // if the kyeboard is open then hide, else show
-      //   child: FloatingActionButton(
-      //     // backgroundColor: MyTheme.whatsapp_color,
-      //     onPressed: () {},
-      //     tooltip: "AI Councellor",
-      //     child: Container(
-      //         margin: EdgeInsets.all(0.0),
-      //         child: IconButton(
-      //             icon: new Image.asset('assets/icons/whatsapp_icon.png'),
-      //             tooltip: 'Action',
-      //             onPressed: () {
-      //               // openwhatsapp();
-      //               // Navigator.push(context,
-      //               //     MaterialPageRoute(builder: (context) {
-      //               //   return ChatScreen(showBackButton : true);
-      //               // }));
-      //               PandaBarButtonData(
-      //                   id: 4, icon: Icons.person, title: 'Profile');
-      //             })),
-      //     elevation: 0.0,
-      //   ),
-      // ),
       bottomNavigationBar: PandaBar(
         backgroundColor: Colors.white.withOpacity(0.8),
         buttonColor: Theme.of(context).accentColor,
@@ -80,8 +50,8 @@ class _MainState extends State<Main> {
         ),
         buttonData: [
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
+          PandaBarButtonData(id: 1, icon: Icons.graphic_eq_sharp, title: 'Profile'),
+          PandaBarButtonData(id: 4, icon: Icons.add_alert, title: 'Profile'),
           PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
         ],
         onChange: (id) {
@@ -90,11 +60,6 @@ class _MainState extends State<Main> {
           });
         },
         onFabButtonPressed: () {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //   return Filter(
-          //     selected_filter: "products",
-          //   );
-          // }));
         },
       ),
     );
