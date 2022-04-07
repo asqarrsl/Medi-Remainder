@@ -39,7 +39,7 @@ class MedicineCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             subtitle: Text(
-              "${medicine.amount} ${medicine.medicineForm}",
+              "${medicine.amount} ${medicine.medicineType}",
               style: Theme.of(context).textTheme.headline5?.copyWith(
                   color: Colors.grey[600],
                   fontSize: 15.0,
@@ -61,7 +61,7 @@ class MedicineCard extends StatelessWidget {
                 ),
               ],
             ),
-            leading: Container(
+            leading: SizedBox(
               width: 60.0,
               height: 60.0,
               child: ClipRRect(
@@ -80,7 +80,7 @@ class MedicineCard extends StatelessWidget {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text("Delete ?"),
+              title: const Text("Delete ?"),
               content: Text("Are you sure to delete $medicineName medicine?"),
               contentTextStyle:
                   TextStyle(fontSize: 17.0, color: Colors.grey[800]),
@@ -100,8 +100,8 @@ class MedicineCard extends StatelessWidget {
                   child: Text("Delete",
                       style: TextStyle(color: MyTheme.accent_color)),
                   onPressed: () async {
-                    await Repository().deleteData('Pills', medicineId);
-                    await Notifications().removeNotify(
+                    await Repository().delete('PillRemainder', medicineId);
+                    await Notifications().removeNotification(
                         notifyId, flutterLocalNotificationsPlugin);
                     setData();
                     Navigator.pop(context);

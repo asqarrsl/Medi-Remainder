@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:medi_remainder/database/pill_remainder/repository.dart';
@@ -33,10 +31,19 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final Snackbar snackbar = Snackbar();
 
+  final Repository _repository = Repository();
+  final Notifications _notifications = Notifications();
+
   //medicine types
   final List<String> weightValues = ["pills", "ml", "mg"];
 
-  //list of medicines forms objects
+  int noOfWeeks = 1;
+  String? selectWeight;
+  DateTime setDate = DateTime.now();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController amountController = TextEditingController();
+
+//list of medicines forms objects
   final List<MedicineType> medicineTypes = [
     MedicineType("Pill", Image.asset("assets/images/pills.png"), true),
     MedicineType("Capsule", Image.asset("assets/images/capsule.png"), false),
@@ -46,25 +53,16 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     MedicineType("Syringe", Image.asset("assets/images/syringe.png"), false),
   ];
 
-  int howManyWeeks = 1;
-  String? selectWeight;
-  DateTime setDate = DateTime.now();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController amountController = TextEditingController();
-
-  final Repository _repository = Repository();
-  final Notifications _notifications = Notifications();
-
   @override
   void initState() {
     super.initState();
     selectWeight = weightValues[0];
-    initNotifies();
+    initNotification();
   }
 
-  //init notifications
-  Future initNotifies() async => flutterLocalNotificationsPlugin =
-      await _notifications.initNotifies(context);
+//init notifications
+  Future initNotification() async => flutterLocalNotificationsPlugin =
+      await _notifications.initNotification(context);
 
   @override
   Widget build(BuildContext context) {
@@ -83,17 +81,17 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: deviceHeight * 0.37,
                 child: FormFields(
-                    howManyWeeks,
+                    noOfWeeks,
                     selectWeight!,
                     popUpMenuItemChanged,
                     sliderChanged,
                     nameController,
                     amountController),
               ),
-              Container(
+              SizedBox(
                 height: deviceHeight * 0.035,
                 child: FittedBox(
                   child: Text(
@@ -108,21 +106,21 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
               SizedBox(
                 height: deviceHeight * 0.02,
               ),
-              Container(
+              SizedBox(
                 height: 100,
                 child: ListView(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
                     ...medicineTypes.map(
-                        (type) => MedicineTypeCard(type, medicineTypeClick))
+                        (type) => MedicineTypeCard(type, medicineTypeCheck))
                   ],
                 ),
               ),
               SizedBox(
                 height: deviceHeight * 0.03,
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: deviceHeight * 0.1,
                 child: Row(
@@ -136,15 +134,15 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                           buttonChild: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Text(
                                 DateFormat.Hm().format(this.setDate),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 28,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Icon(
                                 Icons.access_time,
                                 size: 23,
@@ -156,7 +154,7 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
@@ -167,15 +165,15 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                           buttonChild: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Text(
                                 DateFormat("dd.MM").format(this.setDate),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 28,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Padding(
                                 padding: const EdgeInsets.all(2.0),
                                 child: Icon(
@@ -186,21 +184,21 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                               )
                             ],
                           ),
-                          color: Color.fromRGBO(7, 190, 200, 0.1),
+                          color: const Color.fromRGBO(7, 190, 200, 0.1),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              Spacer(),
-              Container(
+              const Spacer(),
+              SizedBox(
                 height: deviceHeight * 0.09,
                 width: double.infinity,
                 child: PlatformFlatButton(
                   handler: () async => savePill(),
                   color: MyTheme.accent_color,
-                  buttonChild: Text(
+                  buttonChild: const Text(
                     "Done",
                     style: TextStyle(
                         color: Colors.white,
@@ -216,12 +214,15 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     );
   }
 
-  void sliderChanged(double value) =>
-      setState(() => this.howManyWeeks = value.round());
+  //slider changer
+  void sliderChanged(double value) => setState(() => noOfWeeks = value.round());
 
+  //choose popum menu item
   void popUpMenuItemChanged(String value) =>
-      setState(() => this.selectWeight = value);
+      setState(() => selectWeight = value);
 
+  //OPEN TIME PICKER (SHOW)
+  //CHANGE CHOOSE PILL TIME
   Future<void> openTimePicker() async {
     await showTimePicker(
             context: context,
@@ -238,12 +239,13 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     });
   }
 
+  //SHOW DATE PICKER AND CHANGE CURRENT CHOOSE DATE
   Future<void> openDatePicker() async {
     await showDatePicker(
             context: context,
             initialDate: setDate,
             firstDate: DateTime.now(),
-            lastDate: DateTime.now().add(Duration(days: 100000)))
+            lastDate: DateTime.now().add(const Duration(days: 100000)))
         .then((value) {
       DateTime newDate = DateTime(
           value != null ? value.year : setDate.year,
@@ -255,7 +257,11 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     });
   }
 
+  //=======================================================================================================
+
+  //--------------------------------------SAVE PILL IN DATABASE---------------------------------------
   Future savePill() async {
+    //check if medicine time is lower than actual time
     if (setDate.millisecondsSinceEpoch <=
             DateTime.now().millisecondsSinceEpoch ||
         amountController.text.isEmpty ||
@@ -278,8 +284,8 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     } else {
       Pill pill = Pill(
           amount: amountController.text,
-          howManyWeeks: howManyWeeks,
-          medicineForm: medicineTypes[medicineTypes
+          noOfWeeks: noOfWeeks,
+          medicineType: medicineTypes[medicineTypes
                   .indexWhere((element) => element.isChoose == true)]
               .name,
           name: nameController.text,
@@ -287,9 +293,9 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
           type: selectWeight!,
           notifyId: Random().nextInt(10000000));
 
-      for (int i = 0; i < howManyWeeks; i++) {
+      for (int i = 0; i < noOfWeeks; i++) {
         dynamic result =
-            await _repository.insertData("Pills", pill.pillToMap());
+            await _repository.insert("PillRemainder", pill.pillToMap());
         if (result == null) {
           snackbar.showSnack("Something went wrong", _scaffoldKey, null);
           return;
@@ -299,33 +305,34 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
           tz.setLocalLocation(tz.getLocation('Europe/Warsaw'));
           await _notifications.showNotification(
               pill.name!,
-              pill.amount! + " " + pill.medicineForm! + " " + pill.type!,
+              pill.amount! + " " + pill.medicineType! + " " + pill.type!,
               time,
               pill.notifyId!,
               flutterLocalNotificationsPlugin!);
-          setDate = setDate.add(Duration(milliseconds: 604800000));
+          setDate = setDate.add(const Duration(milliseconds: 604800000));
           pill.time = setDate.millisecondsSinceEpoch;
           pill.notifyId = Random().nextInt(10000000);
         }
       }
-
       snackbar.showSnack("Saved", _scaffoldKey, null);
       Navigator.pop(context);
     }
   }
 
-  void medicineTypeClick(MedicineType medicine) {
+  //Selecting Medicine Type
+  void medicineTypeCheck(MedicineType medicine) {
     setState(() {
       medicineTypes.forEach((medicineType) => medicineType.isChoose = false);
       medicineTypes[medicineTypes.indexOf(medicine)].isChoose = true;
     });
   }
 
+  //get time difference
   int get time =>
       setDate.millisecondsSinceEpoch -
       tz.TZDateTime.now(tz.local).millisecondsSinceEpoch;
 
-
+  //----------------------------App Bar----------------------------------------
   AppBar buildAppBar(double statusBarHeight, BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
@@ -344,13 +351,11 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                 builder: (context) => Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 18.0, horizontal: 0.0),
-                  child: Container(
-                    child: Image.asset(
-                      'assets/icons/hamburger.png',
-                      height: 16,
-                      //color: MyTheme.dark_grey,
-                      color: MyTheme.dark_grey,
-                    ),
+                  child: Image.asset(
+                    'assets/icons/hamburger.png',
+                    height: 16,
+                    //color: MyTheme.dark_grey,
+                    color: MyTheme.dark_grey,
                   ),
                 ),
               ),

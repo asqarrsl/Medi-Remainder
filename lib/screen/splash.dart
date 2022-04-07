@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medi_remainder/main.dart';
 import 'package:medi_remainder/screen/main.dart';
 import 'package:medi_remainder/screen/pill_remainder/onboarding/onboarding_main.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';

@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlatformFlatButton extends StatelessWidget {
-  final VoidCallback handler;
-  final Widget buttonChild;
   final Color color;
+  final Widget buttonChild;
+  final VoidCallback handler;
 
   PlatformFlatButton(
       {required this.buttonChild, required this.color, required this.handler});

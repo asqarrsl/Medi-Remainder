@@ -75,7 +75,7 @@ flutter:
     - assets/logo/
     - assets/icons/
     - assets/images/
-    - assets/onboard/
+    - assets/appinit/
     - assets/lottieanim/
     
   # An image asset can refer to one or more resolution-specific "variants", see

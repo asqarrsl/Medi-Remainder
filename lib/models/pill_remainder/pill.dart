@@ -3,48 +3,48 @@ class Pill {
   String? name;
   String? amount;
   String? type;
-  int? howManyWeeks;
-  String? medicineForm;
+  int? noOfWeeks;
+  String? medicineType;
   int? time;
   int? notifyId;
 
   Pill(
       {this.id,
-      this.howManyWeeks,
+      this.noOfWeeks,
       this.time,
       this.amount,
-      this.medicineForm,
+      this.medicineType,
       this.name,
       this.type,
       this.notifyId});
 
   Map<String, dynamic> pillToMap() {
-    Map<String, dynamic> map = Map();
-    map['id'] = this.id;
-    map['name'] = this.name;
-    map['amount'] = this.amount;
-    map['type'] = this.type;
-    map['howManyWeeks'] = this.howManyWeeks;
-    map['medicineForm'] = this.medicineForm;
-    map['time'] = this.time;
-    map['notifyId'] = this.notifyId;
+    Map<String, dynamic> map = {};
+    map['id'] = id;
+    map['amount'] = amount;
+    map['noOfWeeks'] = noOfWeeks;
+    map['type'] = type;
+    map['name'] = name;
+    map['notifyId'] = notifyId;
+    map['medicineType'] = medicineType;
+    map['time'] = time;
     return map;
   }
 
   Pill pillMapToObject(Map<String, dynamic> pillMap) {
     return Pill(
         id: pillMap['id'],
-        name: pillMap['name'],
-        amount: pillMap['amount'],
-        type: pillMap['type'],
-        howManyWeeks: pillMap['howManyWeeks'],
-        medicineForm: pillMap['medicineForm'],
         time: pillMap['time'],
+        type: pillMap['type'],
+        amount: pillMap['amount'],
+        medicineType: pillMap['medicineType'],
+        noOfWeeks: pillMap['noOfWeeks'],
+        name: pillMap['name'],
         notifyId: pillMap['notifyId']);
   }
 
   String get image{
-    switch(this.medicineForm){
+    switch(medicineType){
       case "Syrup": return "assets/images/syrup.png"; break;
       case "Pill":return "assets/images/pills.png"; break;
       case "Capsule":return "assets/images/capsule.png"; break;

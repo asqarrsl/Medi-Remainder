@@ -49,19 +49,19 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    initNotifies();
+    initNotification();
     setData();
     loadImage();
     loadUserData();
     _daysList = _days.getCurrentDays();
   }
 
-  Future initNotifies() async => flutterLocalNotificationsPlugin =
-      await _notifications.initNotifies(context);
+  Future initNotification() async => flutterLocalNotificationsPlugin =
+      await _notifications.initNotification(context);
 
   Future setData() async {
     allListOfPills.clear();
-    (await _repository.getAllData("Pills"))!.forEach((pillMap) {
+    (await _repository.fetchAllData("PillRemainder"))!.forEach((pillMap) {
       allListOfPills.add(Pill().pillMapToObject(pillMap));
     });
     chooseDay(_daysList![_lastChooseDay]);

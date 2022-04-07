@@ -7,6 +7,7 @@ class CalendarDayModel {
   int? year;
   String? dayLetter;
 
+  //model initilaization
   CalendarDayModel(
       {this.dayLetter, this.dayNumber, this.year, this.month, this.isChecked});
 

@@ -27,8 +27,6 @@ class _MainState extends State<Main> {
   }
 
   void initState() {
-    // TODO: implement initState
-    //re appear statusbar in case it was not there in the previous page
     SystemChrome.setEnabledSystemUIOverlays(
         [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.initState();
@@ -53,7 +51,7 @@ class _MainState extends State<Main> {
         buttonData: [
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
           PandaBarButtonData(id: 1, icon: Icons.person, title: 'Profile'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
+          PandaBarButtonData(id: 4, icon: Icons.add_alert, title: 'Profile'),
           PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
         ],
         onChange: (id) {

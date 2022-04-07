@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:medi_remainder/models/pill_remainder/calendar_day_model.dart';
 
 class CalendarDay extends StatefulWidget {
+  
   final CalendarDayModel day;
   final Function onDayClick;
 
