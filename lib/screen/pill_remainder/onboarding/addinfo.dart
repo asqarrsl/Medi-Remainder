@@ -163,61 +163,6 @@ class _AddInfoState extends State<AddInfo> {
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () async {
-      //     //refresh the pills from database
-      //     print("fab pressed");
-      //     if (nameController.text.isEmpty ||
-      //         double.tryParse(phoneController.text) == null ||
-      //         phoneController.text.isEmpty) {
-      //       if (nameController.text.isEmpty) {
-      //         snackbar.showSnack("Check your Name", _scaffoldKey, null);
-      //       }
-      //       if (double.tryParse(phoneController.text) == null) {
-      //         snackbar.showSnack("Enter a Valid Number", _scaffoldKey, null);
-      //       }
-      //       if (phoneController.text.isEmpty) {
-      //         snackbar.showSnack("Check your Number", _scaffoldKey, null);
-      //       }
-      //     } else {
-      //       SharedPreferences saveName = await SharedPreferences.getInstance();
-      //       saveName.setString("username", nameController.text);
-      //       SharedPreferences savePhone = await SharedPreferences.getInstance();
-      //       savePhone.setString("phone", phoneController.text);
-      //       Navigator.pushReplacement(
-      //         context,
-      //         PageRouteBuilder(
-      //           pageBuilder: (c, a1, a2) => Main(),
-      //           // transitionDuration: Duration(milliseconds: 350),
-      //           transitionsBuilder:
-      //               (context, animation, secondaryAnimation, child) {
-      //             const begin = Offset(0.0, 1.0);
-      //             const end = Offset.zero;
-      //             final tween = Tween(begin: begin, end: end);
-      //             final offsetAnimation = animation.drive(tween);
-      //             return SlideTransition(
-      //               position: offsetAnimation,
-      //               child: child,
-      //             );
-      //           },
-      //         ),
-      //       );
-      //     }
-      //   },
-      //   tooltip: "Add Medicines",
-      //   child: Icon(Icons.done_outline_rounded),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // bottomNavigationBar: BottomAppBar(
-      //     shape: CircularNotchedRectangle(),
-      //     color: Colors.blueAccent,
-      //     notchMargin: 6,
-      //     clipBehavior: Clip.antiAlias,
-      //     child: Padding(
-      //         padding: const EdgeInsets.all(2),
-      //         child: Container(
-      //           height: 40,
-      //         ))),
     );
   }
 
@@ -280,32 +225,6 @@ class _AddInfoState extends State<AddInfo> {
   AppBar buildAppBar(double statusBarHeight, BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      // leading: GestureDetector(
-      //   onTap: () {
-      //     _scaffoldKey.currentState?.openDrawer();
-      //   },
-      //   child: widget.showBackButton
-      //       ? Builder(
-      //           builder: (context) => IconButton(
-      //             icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
-      //             onPressed: () => Navigator.of(context).pop(),
-      //           ),
-      //         )
-      //       : Builder(
-      //           builder: (context) => Padding(
-      //             padding: const EdgeInsets.symmetric(
-      //                 vertical: 18.0, horizontal: 0.0),
-      //             child: Container(
-      //               child: Image.asset(
-      //                 'assets/icons/hamburger.png',
-      //                 height: 16,
-      //                 //color: MyTheme.dark_grey,
-      //                 color: MyTheme.dark_grey,
-      //               ),
-      //             ),
-      //           ),
-      //         ),
-      // ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

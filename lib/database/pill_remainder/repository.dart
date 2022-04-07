@@ -2,13 +2,13 @@ import 'package:medi_remainder/database/pill_remainder/pills_database.dart';
 import 'package:sqflite/sqflite.dart';
 
 class Repository {
-  PillsDatabase _pillsDatabase = PillsDatabase();
+  PillRemainderDatabase _pillRemainderDatabase = PillRemainderDatabase();
   static Database? _database;
 
   //init database
   Future<Database> get database async {
     if (_database != null) return _database!;
-    _database = await _pillsDatabase.setDatabase();
+    _database = await _pillRemainderDatabase.setDatabase();
     return _database!;
   }
 

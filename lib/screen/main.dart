@@ -39,32 +39,6 @@ class _MainState extends State<Main> {
     return Scaffold(
       extendBody: true,
       body: _children[_currentIndex],
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      //specify the location of the FAB
-      // floatingActionButton: Visibility(
-      //   visible: MediaQuery.of(context).viewInsets.bottom ==
-      //       0.0, // if the kyeboard is open then hide, else show
-      //   child: FloatingActionButton(
-      //     // backgroundColor: MyTheme.whatsapp_color,
-      //     onPressed: () {},
-      //     tooltip: "AI Councellor",
-      //     child: Container(
-      //         margin: EdgeInsets.all(0.0),
-      //         child: IconButton(
-      //             icon: new Image.asset('assets/icons/whatsapp_icon.png'),
-      //             tooltip: 'Action',
-      //             onPressed: () {
-      //               // openwhatsapp();
-      //               // Navigator.push(context,
-      //               //     MaterialPageRoute(builder: (context) {
-      //               //   return ChatScreen(showBackButton : true);
-      //               // }));
-      //               PandaBarButtonData(
-      //                   id: 4, icon: Icons.person, title: 'Profile');
-      //             })),
-      //     elevation: 0.0,
-      //   ),
-      // ),
       bottomNavigationBar: PandaBar(
         backgroundColor: Colors.white.withOpacity(0.8),
         buttonColor: Theme.of(context).accentColor,
@@ -88,11 +62,6 @@ class _MainState extends State<Main> {
           });
         },
         onFabButtonPressed: () {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //   return Filter(
-          //     selected_filter: "products",
-          //   );
-          // }));
         },
       ),
     );

@@ -3,8 +3,7 @@ class ProfileData {
   String? name;
   String? phoneno;
   ProfileData(
-      { this.imagepath,
-       this.name,
-       this.phoneno}); // with braces it required when calling it
-
+      {this.imagepath,
+      this.name,
+      this.phoneno});
 }

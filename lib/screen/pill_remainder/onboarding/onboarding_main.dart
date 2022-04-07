@@ -3,7 +3,7 @@ import 'package:medi_remainder/my_theme.dart';
 import 'package:medi_remainder/screen/pill_remainder/onboarding/addinfo.dart';
 import 'package:medi_remainder/my_theme.dart';
 import 'data.dart';
-import 'dart:io'; // this has a platform class which gives platform it's running on
+import 'dart:io';
 
 class Onboarding extends StatefulWidget {
   @override

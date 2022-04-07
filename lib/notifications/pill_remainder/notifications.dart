@@ -9,7 +9,7 @@ class Notifications {
   Future<FlutterLocalNotificationsPlugin> initNotifies(
       BuildContext context) async {
     this._context = context;
-    //-----------------------------| Inicialize local notifications |--------------------------------------
+    
     var initializationSettingsAndroid =
         new AndroidInitializationSettings('app_icon');
     var initializationSettingsIOS = new IOSInitializationSettings();
@@ -22,8 +22,6 @@ class Notifications {
     return flutterLocalNotificationsPlugin;
   }
 
-// specific time ke liye dikhana ho to
-// android pe channel id itlte body aur payload jata hai
   Future showNotification(String title, String description, int time, int id,
       FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin) async {
     await flutterLocalNotificationsPlugin.zonedSchedule(
@@ -46,9 +44,6 @@ class Notifications {
             UILocalNotificationDateInterpretation.absoluteTime);
   }
 
-  //================================================================================================================
-
-  //-------------------------| Cancel the notify |---------------------------
   Future removeNotify(int notifyId,
       FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin) async {
     try {
@@ -58,9 +53,6 @@ class Notifications {
     }
   }
 
-  //==========================================================================
-
-  //-------------| function to inicialize local notifications |---------------------------
   Future onSelectNotification(String? payload) async {
     showDialog(
       context: _context!,
@@ -72,6 +64,4 @@ class Notifications {
       },
     );
   }
-//======================================================================================
-
 }

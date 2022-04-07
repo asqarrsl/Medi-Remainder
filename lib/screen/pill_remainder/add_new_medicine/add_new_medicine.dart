@@ -46,20 +46,14 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     MedicineType("Syringe", Image.asset("assets/images/syringe.png"), false),
   ];
 
-  //-------------Pill object------------------
   int howManyWeeks = 1;
   String? selectWeight;
   DateTime setDate = DateTime.now();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController amountController = TextEditingController();
 
-  //==========================================
-
-  //-------------- Database and notifications ------------------
   final Repository _repository = Repository();
   final Notifications _notifications = Notifications();
-
-  //============================================================
 
   @override
   void initState() {
@@ -222,16 +216,11 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     );
   }
 
-  //slider changer
   void sliderChanged(double value) =>
       setState(() => this.howManyWeeks = value.round());
 
-  //choose popum menu item
   void popUpMenuItemChanged(String value) =>
       setState(() => this.selectWeight = value);
-
-  //------------------------OPEN TIME PICKER (SHOW)----------------------------
-  //------------------------CHANGE CHOOSE PILL TIME----------------------------
 
   Future<void> openTimePicker() async {
     await showTimePicker(
@@ -248,9 +237,7 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
       setState(() => setDate = newDate);
     });
   }
-  //====================================================================
 
-  //-------------------------SHOW DATE PICKER AND CHANGE CURRENT CHOOSE DATE-------------------------------
   Future<void> openDatePicker() async {
     await showDatePicker(
             context: context,
@@ -268,11 +255,7 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     });
   }
 
-  //=======================================================================================================
-
-  //--------------------------------------SAVE PILL IN DATABASE---------------------------------------
   Future savePill() async {
-    //check if medicine time is lower than actual time
     if (setDate.millisecondsSinceEpoch <=
             DateTime.now().millisecondsSinceEpoch ||
         amountController.text.isEmpty ||
@@ -293,7 +276,6 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
         snackbar.showSnack("Check your Name", _scaffoldKey, null);
       }
     } else {
-      //create pill object
       Pill pill = Pill(
           amount: amountController.text,
           howManyWeeks: howManyWeeks,
@@ -305,7 +287,6 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
           type: selectWeight!,
           notifyId: Random().nextInt(10000000));
 
-      //---------------------| Save as many medicines as many user checks |----------------------
       for (int i = 0; i < howManyWeeks; i++) {
         dynamic result =
             await _repository.insertData("Pills", pill.pillToMap());
@@ -327,15 +308,12 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
           pill.notifyId = Random().nextInt(10000000);
         }
       }
-      //---------------------------------------------------------------------------------------
+
       snackbar.showSnack("Saved", _scaffoldKey, null);
       Navigator.pop(context);
     }
   }
 
-  //=================================================================================================
-
-  //----------------------------CLICK ON MEDICINE FORM CONTAINER----------------------------------------
   void medicineTypeClick(MedicineType medicine) {
     setState(() {
       medicineTypes.forEach((medicineType) => medicineType.isChoose = false);
@@ -343,16 +321,10 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
     });
   }
 
-  //=====================================================================================================
-
-  //get time difference
   int get time =>
       setDate.millisecondsSinceEpoch -
       tz.TZDateTime.now(tz.local).millisecondsSinceEpoch;
 
-//=================================================================================================
-
-  //----------------------------App Bar----------------------------------------
 
   AppBar buildAppBar(double statusBarHeight, BuildContext context) {
     return AppBar(

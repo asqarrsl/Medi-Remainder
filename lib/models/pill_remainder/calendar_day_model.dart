@@ -1,19 +1,18 @@
 import 'package:intl/intl.dart';
 
 class CalendarDayModel {
-  String? dayLetter;
-  int? dayNumber;
-  int? month;
-  int? year;
   bool? isChecked;
+  int? month;
+  int? dayNumber;
+  int? year;
+  String? dayLetter;
 
   CalendarDayModel(
       {this.dayLetter, this.dayNumber, this.year, this.month, this.isChecked});
 
-  // 7 din ka data
   List<CalendarDayModel> getCurrentDays() {
-    final List<CalendarDayModel> daysList = [];
     DateTime currentTime = DateTime.now();
+    final List<CalendarDayModel> daysList = [];
     for (int i = 0; i < 7; i++) {
       daysList.add(CalendarDayModel(
           dayLetter: DateFormat.E().format(currentTime).toString()[0],

@@ -18,8 +18,6 @@ class Pill {
       this.type,
       this.notifyId});
 
-  //------------------set pill to map-------------------
-
   Map<String, dynamic> pillToMap() {
     Map<String, dynamic> map = Map();
     map['id'] = this.id;
@@ -33,9 +31,6 @@ class Pill {
     return map;
   }
 
-  //=====================================================
-
-  //---------------------create pill object from map---------------------
   Pill pillMapToObject(Map<String, dynamic> pillMap) {
     return Pill(
         id: pillMap['id'],
@@ -47,10 +42,7 @@ class Pill {
         time: pillMap['time'],
         notifyId: pillMap['notifyId']);
   }
-//=====================================================================
 
-
-  //---------------------| Get the medicine image path |-------------------------
   String get image{
     switch(this.medicineForm){
       case "Syrup": return "assets/images/syrup.png"; break;
@@ -62,5 +54,4 @@ class Pill {
       default : return "assets/images/pills.png"; break;
     }
   }
-  //=============================================================================
 }

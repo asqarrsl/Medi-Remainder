@@ -36,12 +36,6 @@ class _MyAppState extends State<MyApp> {
         primaryColor: MyTheme.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         accentColor: MyTheme.accent_color,
-        // the below code is getting fonts from http
-        // textTheme: GoogleFonts.sourceSansProTextTheme(textTheme).copyWith(
-        //   bodyText1: GoogleFonts.sourceSansPro(textStyle: textTheme.bodyText1),
-        //   bodyText2: GoogleFonts.sourceSansPro(
-        //       textStyle: textTheme.bodyText2, fontSize: 12),
-        // ),
       ),
       home: Splash(initScreen: initScreen),
     );
