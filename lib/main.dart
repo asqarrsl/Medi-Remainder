@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_project/app_config.dart';
 import 'package:flutter_project/db/dbHelper.dart';
 import 'package:flutter_project/my_theme.dart';
@@ -10,6 +11,27 @@ Future<void> main() async{
   await Dbhelper.initDb();
   await GetStorage.init();
   runApp(MyApp());
+=======
+import 'package:flutter/services.dart';
+import 'package:medi_remainder/app_config.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+
+int? initScreen;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  initScreen = preferences.getInt('initScreen');
+  await preferences.setInt('initScreen', 1);
+  runApp(MyApp());
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.black.withOpacity(0.05),
+      statusBarColor: Colors.black.withOpacity(0.05),
+      statusBarIconBrightness: Brightness.dark));
+>>>>>>> main
 }
 
 class MyApp extends StatefulWidget {
@@ -35,7 +57,7 @@ class _MyAppState extends State<MyApp> {
         //       textStyle: textTheme.bodyText2, fontSize: 12),
         // ),
       ),
-      home: Splash(),
+      home: Splash(initScreen: initScreen),
     );
   }
 }

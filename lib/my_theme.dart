@@ -10,6 +10,7 @@ class MyTheme{
   static Color splash_screen_color = Color.fromRGBO(54, 52, 73, 1); // if not sure , use the same color as accent color
   static Color whatsapp_color = Color.fromRGBO(7, 94, 84, 1);
   static Color call_icon = Color.fromRGBO(24, 172, 182, 1);
+  static Color bg_color = Color.fromARGB(255, 240, 240, 240);
   /*configurable colors ends*/
 
   /*If you are not a developer, do not change the bottom colors*/

@@ -1,4 +1,4 @@
-name: flutter_project
+name: medi_remainder
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -33,15 +33,18 @@ dependencies:
   splash_screen_view: ^3.0.0
   pandabar: ^0.1.2
 
+  timezone: ^0.8.0
+  shared_preferences: ^2.0.13
+  lottie: ^1.2.2
+  flutter_local_notifications: ^9.4.0
+  sqflite: ^2.0.2
+  image_picker: ^0.8.4+11
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get_storage:
   get: ^4.1.4
   google_fonts:
   date_picker_timeline:
-  sqflite:
   flutter_native_timezone:
   flutter_staggered_animations:
   
@@ -74,6 +77,9 @@ flutter:
   assets:
     - assets/logo/
     - assets/icons/
+    - assets/images/
+    - assets/onboard/
+    - assets/lottieanim/
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -86,6 +92,18 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Popins
+      fonts:
+        - asset: assets/fonts/popins_regular.ttf
+        - asset: assets/fonts/popins_light.ttf
+          weight: 300
+        - asset: assets/fonts/popins_bold.ttf
+          weight: 700
+        - asset: assets/fonts/popins_semibold.ttf
+          weight: 600
+        - asset: assets/fonts/popins_medium.ttf
+          weight: 500
   # fonts:
   #   - family: Schyler
   #     fonts:

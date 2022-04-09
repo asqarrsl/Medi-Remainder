@@ -6,7 +6,7 @@ import 'package:flutter_project/screen/home.dart';
 import 'package:pandabar/pandabar.dart';
 
 class Main extends StatefulWidget {
-  Main({Key? key, go_back = true}) : super(key: key);
+  Main({Key? key, go_back}) : super(key: key);
 
   bool go_back = false;
 
@@ -19,10 +19,6 @@ class _MainState extends State<Main> {
   var _children = [Home(), Appoint(), Home(), Home(), Home()];
 
   void onTapped(int i) {
-    // if (!is_logged_in.$ && (i == 4 || i == 3)) {
-    //   Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-    //   return;
-    // }
     setState(() {
       _currentIndex = i;
     });
