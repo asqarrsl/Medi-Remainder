@@ -26,8 +26,6 @@ class _MainState extends State<Main> {
   }
 
   void initState() {
-    // TODO: implement initState
-    //re appear statusbar in case it was not there in the previous page
     SystemChrome.setEnabledSystemUIOverlays(
         [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.initState();
@@ -38,7 +36,6 @@ class _MainState extends State<Main> {
     return Scaffold(
       extendBody: true,
       body: _children[_currentIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       bottomNavigationBar: PandaBar(
         backgroundColor: Colors.white.withOpacity(0.8),
         buttonColor: Theme.of(context).accentColor,
@@ -53,8 +50,8 @@ class _MainState extends State<Main> {
         buttonData: [
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
           PandaBarButtonData(id: 1, icon: Icons.addchart, title: 'Appointment'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
+          PandaBarButtonData(id: 4, icon: Icons.graphic_eq_sharp, title: 'Profile'),
+          PandaBarButtonData(id: 4, icon: Icons.add_alert, title: 'Profile'),
         ],
         onChange: (id) {
           setState(() {
@@ -62,11 +59,6 @@ class _MainState extends State<Main> {
           });
         },
         onFabButtonPressed: () {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //   return Filter(
-          //     selected_filter: "products",
-          //   );
-          // }));
         },
       ),
     );

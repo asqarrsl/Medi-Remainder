@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medi_remainder/screen/main.dart';
 import 'package:medi_remainder/screen/profile.dart';
 
-
 class MainDrawer extends StatefulWidget {
   MainDrawer({Key? key}) : super(key: key);
 
@@ -19,7 +18,7 @@ class _MainDrawerState extends State<MainDrawer> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-                  Container(),
+              Container(),
             ],
           ),
         ),

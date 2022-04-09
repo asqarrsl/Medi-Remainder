@@ -4,19 +4,21 @@ import 'package:medi_remainder/models/pill_remainder/pill.dart';
 import 'package:medi_remainder/screen/pill_remainder/medicine_card.dart';
 
 class MedicinesList extends StatelessWidget {
-  final List<Pill> listOfMedicines;
   final Function setData;
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+  final List<Pill> MedicineList;
+  final FlutterLocalNotificationsPlugin flutterLocalNotiPlugin;
+
   MedicinesList(
-      this.listOfMedicines, this.setData, this.flutterLocalNotificationsPlugin);
+      this.MedicineList, this.setData, this.flutterLocalNotiPlugin);
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) => MedicineCard(
-          listOfMedicines[index], setData, flutterLocalNotificationsPlugin),
-      itemCount: listOfMedicines.length,
+          MedicineList[index], setData, flutterLocalNotiPlugin),
+      itemCount: MedicineList.length,
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
     );
   }
 }

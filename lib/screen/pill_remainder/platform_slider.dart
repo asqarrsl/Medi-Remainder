@@ -19,20 +19,20 @@ class PlatformSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Platform.isIOS
         ? CupertinoSlider(
-            onChanged: (value) => this.handler(value),
-            max: this.max.toDouble(),
-            min: this.min.toDouble(),
-            divisions: this.divisions,
+            max: max.toDouble(),
+            onChanged: (value) => handler(value),
+            divisions: divisions,
             activeColor: Theme.of(context).primaryColor,
-            value: this.value.toDouble(),
+            min: min.toDouble(),
+            value: value.toDouble(),
           )
         : Slider(
-            value: this.value.toDouble(),
-            onChanged: (value) => this.handler(value),
-            max: this.max.toDouble(),
-            min: this.min.toDouble(),
-            divisions: this.divisions,
-            activeColor: this.color,
+            onChanged: (value) => handler(value),
+            max: max.toDouble(),
+            divisions: divisions,
+            value: value.toDouble(),
+            min: min.toDouble(),
+            activeColor: color,
           );
   }
 }

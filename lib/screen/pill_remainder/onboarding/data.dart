@@ -31,30 +31,30 @@ class SliderModel {
 
 List<SliderModel> getSlides() {
   List<SliderModel> slides = <SliderModel>[];
-  SliderModel sliderModel = SliderModel();
+  SliderModel initialsliders = SliderModel();
   //1st screen
-  sliderModel.setImgPath("assets/onboard/01onboard.png");
-  sliderModel.setTitle("Missing Taking Pills ?");
-  sliderModel.setDescription(
-      "Now onwards using pill reminder you won't forget to take pills");
-  slides.add(sliderModel);
+  initialsliders.setImgPath("assets/appinit/01appinit.png");
+  initialsliders.setDescription(
+      "You will never longer forget to take your medicines if you use a pill reminder.");
+  initialsliders.setTitle("Do you miss taking your pills?");
+  slides.add(initialsliders);
 
-  sliderModel = SliderModel();
+  initialsliders = SliderModel();
   //2nd screen
-  sliderModel.setImgPath("assets/onboard/02onboard.png");
-  sliderModel.setTitle("Health Improvement");
-  sliderModel.setDescription(
+  initialsliders.setImgPath("assets/appinit/02appinit.png");
+  initialsliders.setDescription(
       "With regular taking pills you will recover soon and safe from side-effects from not taking pills regularly.");
-  slides.add(sliderModel);
+  initialsliders.setTitle("Health Improvement");
+  slides.add(initialsliders);
 
-  sliderModel = SliderModel();
+  initialsliders = SliderModel();
   //3rd  screen
-  sliderModel.setImgPath("assets/onboard/03onboard.png");
-  sliderModel.setTitle("Get Notification's");
-  sliderModel.setDescription(
+  initialsliders.setImgPath("assets/appinit/03appinit.png");
+  initialsliders.setDescription(
       "Get notified for every pill , that too with catchy sound");
-  slides.add(sliderModel);
+  initialsliders.setTitle("Get Notification's");
+  slides.add(initialsliders);
 
-  sliderModel = SliderModel();
+  initialsliders = SliderModel();
   return slides;
 }

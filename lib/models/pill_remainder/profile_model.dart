@@ -1,10 +1,9 @@
 class ProfileData {
-  String? imagepath;
-  String? name;
   String? phoneno;
+  String? name;
+  String? imagepath;
   ProfileData(
-      { this.imagepath,
-       this.name,
-       this.phoneno}); // with braces it required when calling it
-
+      {this.imagepath,
+      this.name,
+      this.phoneno});
 }

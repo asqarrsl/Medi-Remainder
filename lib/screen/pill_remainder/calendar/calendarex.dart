@@ -27,18 +27,14 @@ class _CalendarExState extends State<CalendarEx> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  //===============================================================
-
-  //--------------------| List of Pills from database |----------------------
+  //fetch and list all pills from database
   List<Pill> allListOfPills = <Pill>[];
   final Repository _repository = Repository();
   List<Pill> dailyPills = <Pill>[];
-  //=========================================================================
 
-  //-----------------| Calendar days |------------------
+  //Calendar days
   final CalendarDayModel _days = CalendarDayModel();
   List<CalendarDayModel>? _daysList;
-  //====================================================
 
   //handle last choose day index in calendar
   int _lastChooseDay = 0;
@@ -46,40 +42,40 @@ class _CalendarExState extends State<CalendarEx> {
   @override
   void initState() {
     super.initState();
-    initNotifies();
-    setData();
+    initNotification();
+    getAllData();
 
     _daysList = _days.getCurrentDays();
   }
 
   //init notifications
-  Future initNotifies() async => flutterLocalNotificationsPlugin =
-      await _notifications.initNotifies(context);
+  Future initNotification() async => flutterLocalNotificationsPlugin =
+      await _notifications.initNotification(context);
 
-  //--------------------GET ALL DATA FROM DATABASE---------------------
-  Future setData() async {
+  //fetch all data from database
+  Future getAllData() async {
     allListOfPills.clear();
-    (await _repository.getAllData("Pills"))!.forEach((pillMap) {
+    (await _repository.fetchAllData("PillRemainder"))!.forEach((pillMap) {
       allListOfPills.add(Pill().pillMapToObject(pillMap));
     });
-    chooseDay(_daysList![_lastChooseDay]);
+    selectDay(_daysList![_lastChooseDay]);
   }
 
-  void chooseDay(CalendarDayModel clickedDay) {
+  void selectDay(CalendarDayModel clickedDay) {
     setState(() {
       _lastChooseDay = _daysList!.indexOf(clickedDay);
       for (var day in _daysList!) {
         day.isChecked = false;
       }
-      CalendarDayModel chooseDay = _daysList![_daysList!.indexOf(clickedDay)];
-      chooseDay.isChecked = true;
+      CalendarDayModel selectDay = _daysList![_daysList!.indexOf(clickedDay)];
+      selectDay.isChecked = true;
       dailyPills.clear();
       allListOfPills.forEach((pill) {
         DateTime pillDate =
             DateTime.fromMicrosecondsSinceEpoch(pill.time! * 1000);
-        if (chooseDay.dayNumber == pillDate.day &&
-            chooseDay.month == pillDate.month &&
-            chooseDay.year == pillDate.year) {
+        if (selectDay.dayNumber == pillDate.day &&
+            selectDay.month == pillDate.month &&
+            selectDay.year == pillDate.year) {
           dailyPills.add(pill);
         }
       });
@@ -106,7 +102,7 @@ class _CalendarExState extends State<CalendarEx> {
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 5.0),
-                  child: Calendar(chooseDay, _daysList!),
+                  child: Calendar(selectDay, _daysList!),
                 ),
                 SizedBox(height: deviceHeight * 0.01),
                 dailyPills.isEmpty
@@ -126,7 +122,7 @@ class _CalendarExState extends State<CalendarEx> {
                         ),
                       )
                     : MedicinesList(
-                        dailyPills, setData, flutterLocalNotificationsPlugin!)
+                        dailyPills, getAllData, flutterLocalNotificationsPlugin!)
               ],
             ),
           ),
@@ -220,5 +216,3 @@ class _CalendarExState extends State<CalendarEx> {
     );
   }
 }
-/* 
- */

@@ -33,43 +33,35 @@ class _HomeState extends State<Home> {
   File? _image;
   String? _imagepath;
   String? username;
-  //-------------------| Flutter notifications |-------------------
+
   final Notifications _notifications = Notifications();
   FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
-  //===============================================================
-
-  //--------------------| List of Pills from database |----------------------
+  
   List<Pill> allListOfPills = <Pill>[];
   final Repository _repository = Repository();
   List<Pill> dailyPills = <Pill>[];
-  //=========================================================================
-
-  //-----------------| Calendar days |------------------
+  
   final CalendarDayModel _days = CalendarDayModel();
   List<CalendarDayModel>? _daysList;
-  //====================================================
-
-  //handle last choose day index in calendar
+  
   int _lastChooseDay = 0;
 
   @override
   void initState() {
     super.initState();
-    initNotifies();
+    initNotification();
     setData();
     loadImage();
     loadUserData();
     _daysList = _days.getCurrentDays();
   }
 
-  //init notifications
-  Future initNotifies() async => flutterLocalNotificationsPlugin =
-      await _notifications.initNotifies(context);
+  Future initNotification() async => flutterLocalNotificationsPlugin =
+      await _notifications.initNotification(context);
 
-  //--------------------GET ALL DATA FROM DATABASE---------------------
   Future setData() async {
     allListOfPills.clear();
-    (await _repository.getAllData("Pills"))!.forEach((pillMap) {
+    (await _repository.fetchAllData("PillRemainder"))!.forEach((pillMap) {
       allListOfPills.add(Pill().pillMapToObject(pillMap));
     });
     chooseDay(_daysList![_lastChooseDay]);
@@ -89,11 +81,9 @@ class _HomeState extends State<Home> {
       appBar: buildAppBar(statusBarHeight, context),
       drawer: MainDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      // specify the location of the FAB
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: kBottomNavigationBarHeight),
         child: FloatingActionButton(
-          // backgroundColor: MyTheme.whatsapp_color,
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return AddNewMedicine(
