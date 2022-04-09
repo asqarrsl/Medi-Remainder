@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:medi_remainder/my_theme.dart';
-import 'package:medi_remainder/screen/pill_remainder/home.dart';
-import 'package:medi_remainder/screen/profile.dart';
-import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/appoint.dart';
+import 'package:medi_remainder/screen/home.dart';
 import 'package:pandabar/pandabar.dart';
 
 class Main extends StatefulWidget {
@@ -17,7 +16,7 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  final _children = [Home(), Profile(), Profile(), Profile(), Profile()];
+  var _children = [Home(), Appoint(), Home(), Home(), Home()];
 
   void onTapped(int i) {
     setState(() {
@@ -50,9 +49,9 @@ class _MainState extends State<Main> {
         ),
         buttonData: [
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
-          PandaBarButtonData(id: 1, icon: Icons.graphic_eq_sharp, title: 'Profile'),
+          PandaBarButtonData(id: 1, icon: Icons.addchart, title: 'Appointment'),
+          PandaBarButtonData(id: 4, icon: Icons.graphic_eq_sharp, title: 'Profile'),
           PandaBarButtonData(id: 4, icon: Icons.add_alert, title: 'Profile'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
         ],
         onChange: (id) {
           setState(() {

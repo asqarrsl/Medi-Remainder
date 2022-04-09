@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+const Color darkGreyClr = Color(0xFF121212);
 class MyTheme{
   static Color accent_color = Color.fromRGBO(30,27,86, 1);
   static Color red_accent_color = Color.fromRGBO(227, 0, 13, 1);
@@ -19,6 +21,49 @@ class MyTheme{
   static Color golden = Color.fromRGBO(240, 79, 99, 1);
   static Color shimmer_base = Colors.grey.shade50;
   static Color shimmer_highlighted = Colors.grey.shade200;
+  static Color black = Colors.black;
 
+  //testing shimmer
+  /*static Color shimmer_base = Colors.redAccent;
+  static Color shimmer_highlighted = Colors.yellow;*/
 
+}
+TextStyle get subHeadingStyle{
+    return GoogleFonts.lato(
+        // ignore: prefer_const_constructors
+        textStyle: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        )
+    );
+  }
+TextStyle get HeadingStyle{
+    return GoogleFonts.lato(
+        // ignore: prefer_const_constructors
+        textStyle: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        )
+    );
+  }
+  TextStyle get titleStyle{
+    return GoogleFonts.lato(
+        // ignore: prefer_const_constructors
+        textStyle: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: MyTheme.black
+        )
+    );
+  }
+    TextStyle get subtitleStyle{
+    return GoogleFonts.lato(
+        // ignore: prefer_const_constructors
+        textStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          color: MyTheme.black
+        )
+    );
+  }
 }
