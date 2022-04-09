@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/app_config.dart';
+import 'package:flutter_project/db/dbHelper.dart';
 import 'package:flutter_project/my_theme.dart';
 import 'package:flutter_project/screen/splash.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Dbhelper.initDb();
+  await GetStorage.init();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);

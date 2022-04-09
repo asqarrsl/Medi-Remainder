@@ -174,11 +174,12 @@ class _HomeState extends State<Home> {
                 ),
               ),
       ),
-      title: Row(
+      title: SingleChildScrollView( 
+        child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            //  margin: const EdgeInsets.only(left: 75),
+            margin: const EdgeInsets.only(left: 75),
             child: Image.asset(
               'assets/logo/appbar_icon.png',
               fit: BoxFit.fitWidth,
@@ -186,6 +187,7 @@ class _HomeState extends State<Home> {
             ),
           )
         ],
+      )
       ),
       elevation: 0.0,
       titleSpacing: 0,
