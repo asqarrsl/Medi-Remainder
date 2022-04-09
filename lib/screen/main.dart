@@ -55,7 +55,7 @@ class _MainState extends State<Main> {
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
           PandaBarButtonData(id: 1, icon: Icons.addchart, title: 'Appointment'),
           PandaBarButtonData(id: 2, icon: Icons.add_alert, title: 'Medicine'),
-          PandaBarButtonData(id: 3, icon: Icons.graphic_eq_sharp, title: 'Medicine'),
+          PandaBarButtonData(id: 3, icon: Icons.graphic_eq_sharp, title: 'Health Tracker'),
         ],
         onChange: (id) {
           setState(() {
