@@ -1,5 +1,5 @@
 
-import 'package:flutter_project/db/dbHelper.dart';
+import 'package:medi_remainder/db/dbHelper.dart';
 import 'package:get/get.dart';
 
 import '../models/appointment.dart';

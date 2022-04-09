@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/uisections/drawer.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/uisections/drawer.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key, this.title, this.showBackButton = false}) : super(key: key);

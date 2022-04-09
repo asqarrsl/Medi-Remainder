@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_project/my_theme.dart';
+import 'package:medi_remainder/my_theme.dart';
 class Button extends StatelessWidget {
   final String label;
   final Function()? onTap;

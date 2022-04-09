@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/appoint.dart';
-import 'package:flutter_project/screen/home.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/appoint.dart';
+import 'package:medi_remainder/screen/home.dart';
 import 'package:pandabar/pandabar.dart';
 
 class Main extends StatefulWidget {

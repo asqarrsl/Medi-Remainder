@@ -1,28 +1,18 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:flutter_project/app_config.dart';
-import 'package:flutter_project/db/dbHelper.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/splash.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:flutter/services.dart';
+import 'package:medi_remainder/app_config.dart';
+import 'package:medi_remainder/db/dbHelper.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+int? initScreen;
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Dbhelper.initDb();
   await GetStorage.init();
-  runApp(MyApp());
-=======
-import 'package:flutter/services.dart';
-import 'package:medi_remainder/app_config.dart';
-import 'package:medi_remainder/my_theme.dart';
-import 'package:medi_remainder/screen/splash.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-
-int? initScreen;
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   initScreen = preferences.getInt('initScreen');
   await preferences.setInt('initScreen', 1);
@@ -31,7 +21,6 @@ Future<void> main() async {
       systemNavigationBarColor: Colors.black.withOpacity(0.05),
       statusBarColor: Colors.black.withOpacity(0.05),
       statusBarIconBrightness: Brightness.dark));
->>>>>>> main
 }
 
 class MyApp extends StatefulWidget {

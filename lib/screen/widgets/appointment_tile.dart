@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/models/appointment.dart';
+import 'package:medi_remainder/models/appointment.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppointmentTile extends StatelessWidget {

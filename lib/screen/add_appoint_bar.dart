@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/controllers/appointment_controller.dart';
-import 'package:flutter_project/models/appointment.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/widgets/button.dart';
-import 'package:flutter_project/screen/widgets/input_field.dart';
-import 'package:flutter_project/uisections/drawer.dart';
+import 'package:medi_remainder/controllers/appointment_controller.dart';
+import 'package:medi_remainder/models/appointment.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/widgets/button.dart';
+import 'package:medi_remainder/screen/widgets/input_field.dart';
+import 'package:medi_remainder/uisections/drawer.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
