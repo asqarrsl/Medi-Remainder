@@ -1,4 +1,4 @@
-import 'package:flutter_project/models/model.dart';
+import 'package:medi_remainder/models/model.dart';
 
 class HealthModel extends Model {
   static String table = "health_tbl";

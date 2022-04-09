@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/models/health.dart';
-import 'package:flutter_project/services/db_service.dart';
+import 'package:medi_remainder/models/health.dart';
+import 'package:medi_remainder/services/db_service.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
-import 'package:flutter_project/list_screen.dart';
+import 'package:medi_remainder/list_screen.dart';
 
 class AddEditHealthPage extends StatefulWidget {
   const AddEditHealthPage({Key? key, this.model, this.isEditMode = false})

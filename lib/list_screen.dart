@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_project/models/health.dart';
-import 'package:flutter_project/services/db_service.dart';
+import 'package:medi_remainder/models/health.dart';
+import 'package:medi_remainder/services/db_service.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/list_helper.dart';
 import 'add_edit_health.dart';

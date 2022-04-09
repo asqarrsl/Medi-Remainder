@@ -1,6 +1,6 @@
 //import 'package:flutter/material.dart';
-import 'package:flutter_project/models/health.dart';
-import 'package:flutter_project/utils/db_helper.dart';
+import 'package:medi_remainder/models/health.dart';
+import 'package:medi_remainder/utils/db_helper.dart';
 
 class DBservice {
   Future<List<HealthModel>> getHealth() async {

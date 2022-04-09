@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/home.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/home.dart';
+import 'package:medi_remainder/screen/view-all-medicines.dart';
+import 'package:medi_remainder/screen/appoint.dart';
 import 'package:pandabar/pandabar.dart';
 
 class Main extends StatefulWidget {
@@ -15,7 +17,7 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  var _children = [Home(), Home(), Home(), Home(), Home()];
+  var _children = [Home(), Appoint(),ViewAllMedicines(), Home(), Home()];
 
   void onTapped(int i) {
     // if (!is_logged_in.$ && (i == 4 || i == 3)) {
@@ -42,31 +44,6 @@ class _MainState extends State<Main> {
       extendBody: true,
       body: _children[_currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      //specify the location of the FAB
-      // floatingActionButton: Visibility(
-      //   visible: MediaQuery.of(context).viewInsets.bottom ==
-      //       0.0, // if the kyeboard is open then hide, else show
-      //   child: FloatingActionButton(
-      //     // backgroundColor: MyTheme.whatsapp_color,
-      //     onPressed: () {},
-      //     tooltip: "AI Councellor",
-      //     child: Container(
-      //         margin: EdgeInsets.all(0.0),
-      //         child: IconButton(
-      //             icon: new Image.asset('assets/icons/whatsapp_icon.png'),
-      //             tooltip: 'Action',
-      //             onPressed: () {
-      //               // openwhatsapp();
-      //               // Navigator.push(context,
-      //               //     MaterialPageRoute(builder: (context) {
-      //               //   return ChatScreen(showBackButton : true);
-      //               // }));
-      //               PandaBarButtonData(
-      //                   id: 4, icon: Icons.person, title: 'Profile');
-      //             })),
-      //     elevation: 0.0,
-      //   ),
-      // ),
       bottomNavigationBar: PandaBar(
         backgroundColor: Colors.white.withOpacity(0.8),
         buttonColor: Theme.of(context).accentColor,
@@ -80,9 +57,9 @@ class _MainState extends State<Main> {
         ),
         buttonData: [
           PandaBarButtonData(id: 0, icon: Icons.home, title: 'Home'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
-          PandaBarButtonData(id: 4, icon: Icons.person, title: 'Profile'),
+          PandaBarButtonData(id: 1, icon: Icons.addchart, title: 'Appointment'),
+          PandaBarButtonData(id: 2, icon: Icons.add_alert, title: 'Medicine'),
+          PandaBarButtonData(id: 3, icon: Icons.graphic_eq_sharp, title: 'Medicine'),
         ],
         onChange: (id) {
           setState(() {

@@ -1,5 +1,5 @@
 //import 'package:flutter/material.dart';
-import 'package:flutter_project/models/model.dart';
+import 'package:medi_remainder/models/model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as p;
 

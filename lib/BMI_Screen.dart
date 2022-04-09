@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/add_edit_health.dart';
+import 'package:medi_remainder/add_edit_health.dart';
 
 class BMIScreen extends StatefulWidget {
   const BMIScreen({Key? key}) : super(key: key);
