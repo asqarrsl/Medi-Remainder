@@ -1,6 +1,6 @@
 
 
-import 'package:flutter_project/Models/medicine-model.dart';
+import 'package:medi_remainder/Models/medicine-model.dart';
 
 import '../Database/repository.dart';
 

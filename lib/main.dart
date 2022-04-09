@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/app_config.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/splash.dart';
+import 'package:medi_remainder/app_config.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/splash.dart';
 
 void main() => runApp(MyApp());
 

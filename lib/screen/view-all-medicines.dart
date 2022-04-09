@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/Models/medicine-model.dart';
-import 'package:flutter_project/Services/medicine-service.dart';
-import 'package:flutter_project/screen/add-new-medicine.dart';
-import 'package:flutter_project/screen/edit-medicine.dart';
-import 'package:flutter_project/screen/view-medicine.dart';
+import 'package:medi_remainder/Models/medicine-model.dart';
+import 'package:medi_remainder/Services/medicine-service.dart';
+import 'package:medi_remainder/screen/add-new-medicine.dart';
+import 'package:medi_remainder/screen/edit-medicine.dart';
+import 'package:medi_remainder/screen/view-medicine.dart';
 
 class ViewAllMedicines extends StatefulWidget {
   const ViewAllMedicines({Key? key}) : super(key: key);

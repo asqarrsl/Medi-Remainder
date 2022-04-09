@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/Models/medicine-model.dart';
-import 'package:flutter_project/Services/medicine-service.dart';
-import 'package:flutter_project/my_theme.dart';
-import 'package:flutter_project/screen/view-all-medicines.dart';
-import 'package:flutter_project/uisections/drawer.dart';
+import 'package:medi_remainder/Models/medicine-model.dart';
+import 'package:medi_remainder/Services/medicine-service.dart';
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/screen/view-all-medicines.dart';
+import 'package:medi_remainder/uisections/drawer.dart';
 import 'package:uuid/uuid.dart';
 
 class Home extends StatefulWidget {

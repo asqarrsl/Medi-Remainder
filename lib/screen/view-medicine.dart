@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/Models/medicine-model.dart';
+import 'package:medi_remainder/Models/medicine-model.dart';
 
 class ViewMedicine extends StatefulWidget {
   final MedicineModel medicine;

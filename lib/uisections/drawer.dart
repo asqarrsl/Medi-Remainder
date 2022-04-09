@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/screen/main.dart';
-import 'package:flutter_project/screen/profile.dart';
+import 'package:medi_remainder/screen/main.dart';
+import 'package:medi_remainder/screen/profile.dart';
 
 
 class MainDrawer extends StatefulWidget {
