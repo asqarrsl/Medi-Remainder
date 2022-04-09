@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         accentColor: MyTheme.accent_color,
       ),
-      home: Splash(initScreen: initScreen),
+      home: Splash(),
     );
   }
 }

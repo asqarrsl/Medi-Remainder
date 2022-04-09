@@ -27,7 +27,7 @@ class MyTheme{
   /*static Color shimmer_base = Colors.redAccent;
   static Color shimmer_highlighted = Colors.yellow;*/
 
-}
+
 TextStyle get subHeadingStyle{
     return GoogleFonts.lato(
         // ignore: prefer_const_constructors
