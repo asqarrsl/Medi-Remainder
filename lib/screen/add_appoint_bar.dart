@@ -79,7 +79,7 @@ class _AddAppointmentState extends State<AddAppointment> {
                       children: [
                         Text(
                           "Add Task",
-                          style: HeadingStyle,
+                          // style: HeadingStyle,
                         ),
                         InputField(
                           title: "Appointment Title",
@@ -149,7 +149,7 @@ class _AddAppointmentState extends State<AddAppointment> {
                             ),
                             iconSize: 32,
                             elevation: 4,
-                            style: subtitleStyle,
+                            // style: subtitleStyle,
                             underline: Container(
                               height: 0,
                             ),
@@ -202,39 +202,22 @@ class _AddAppointmentState extends State<AddAppointment> {
     return AppBar(
       backgroundColor: Colors.white,
       leading: GestureDetector(
-        onTap: () {},
-        child: widget.showBackButton
-            ? Builder(
-                builder: (context) => IconButton(
-                  icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              )
-            : Builder(
-                builder: (context) => Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 18.0, horizontal: 0.0),
-                  child: Container(
-                    child: Image.asset(
-                      'assets/icons/hamburger.png',
-                      height: 16,
-                      //color: MyTheme.dark_grey,
-                      color: MyTheme.dark_grey,
-                    ),
-                  ),
-                ),
-              ),
-      ),
+          onTap: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+          child: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          )),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            //  margin: const EdgeInsets.only(left: 75),
-            child: Image.asset(
-              'assets/logo/appbar_icon.png',
-              fit: BoxFit.fitWidth,
-              height: 40,
-            ),
+          Image.asset(
+            'assets/logo/appbar_icon.png',
+            fit: BoxFit.fitWidth,
+            height: 40,
           )
         ],
       ),
@@ -246,32 +229,10 @@ class _AddAppointmentState extends State<AddAppointment> {
             // ToastComponent.showDialog("Coming soon", context,
             //     gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);
           },
-          child: Visibility(
-            visible: false,
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
-              child: Image.asset(
-                'assets/bell.png',
-                height: 16,
-                color: MyTheme.dark_grey,
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            // Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //   return Address();
-            // }));
-          },
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
-            child: Icon(
-              Icons.settings,
-              color: MyTheme.accent_color,
-            ),
+            child: Icon(Icons.settings_outlined),
           ),
         ),
       ],
@@ -311,7 +272,7 @@ class _AddAppointmentState extends State<AddAppointment> {
       children: [
         Text(
           "Color",
-          style: titleStyle,
+          // style: titleStyle,
         ),
         Wrap(
           children: List<Widget>.generate(3, (int index) {

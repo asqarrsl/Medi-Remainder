@@ -16,17 +16,17 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:lottie/lottie.dart';
 
-class Home extends StatefulWidget {
-  Home({Key? key, this.title, this.showBackButton = false}) : super(key: key);
+class PillHome extends StatefulWidget {
+  PillHome({Key? key, this.title, this.showBackButton = false}) : super(key: key);
 
   final String? title;
   bool showBackButton;
 
   @override
-  State<Home> createState() => _HomeState();
+  State<PillHome> createState() => _PillHomeState();
 }
 
-class _HomeState extends State<Home> {
+class _PillHomeState extends State<PillHome> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _currentSlider = 0;
 
@@ -187,12 +187,8 @@ class _HomeState extends State<Home> {
             visible: false,
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
-              child: Image.asset(
-                'assets/bell.png',
-                height: 16,
-                color: MyTheme.dark_grey,
-              ),
+                  const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
+              child: Icon(Icons.settings_outlined),
             ),
           ),
         ),
@@ -217,7 +213,6 @@ class _HomeState extends State<Home> {
       ],
     );
   }
-
   void chooseDay(CalendarDayModel clickedDay) {
     setState(() {
       _lastChooseDay = _daysList!.indexOf(clickedDay);

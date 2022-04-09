@@ -388,12 +388,8 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
                   visible: false,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 18.0, horizontal: 12.0),
-                    child: Image.asset(
-                      'assets/bell.png',
-                      height: 16,
-                      color: MyTheme.dark_grey,
-                    ),
+                        vertical: 12.0, horizontal: 12.0),
+                    child: Icon(Icons.settings_outlined),
                   ),
                 ),
               )

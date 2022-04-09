@@ -32,20 +32,6 @@ class _AppointState extends State<Appoint> {
   ScrollController? _featuredProductScrollController;
 
   get style => null;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // In initState()
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
-
   final List<Map> field = [];
 
   @override
@@ -191,9 +177,9 @@ class _AppointState extends State<Appoint> {
           child: Center(
             child: Text(
               label,
-              style: isClose
-                  ? titleStyle
-                  : titleStyle.copyWith(color: Colors.white),
+              // style: isClose
+              //     ? titleStyle
+              //     : titleStyle.copyWith(color: Colors.white),
             ),
           ),
         ));
@@ -242,11 +228,11 @@ class _AppointState extends State<Appoint> {
               children: [
                 Text(
                   DateFormat.yMMMMd().format(DateTime.now()),
-                  style: subHeadingStyle,
+                  // style: subHeadingStyle,
                 ),
                 Text(
                   "Today",
-                  style: HeadingStyle,
+                  // style: HeadingStyle,
                 ),
               ],
             ),
@@ -282,7 +268,6 @@ class _AppointState extends State<Appoint> {
                   padding: const EdgeInsets.symmetric(
                       vertical: 18.0, horizontal: 0.0),
                   child: Container(
-                    margin: const EdgeInsets.only(),
                     child: Image.asset(
                       'assets/icons/hamburger.png',
                       height: 16,
@@ -296,13 +281,10 @@ class _AppointState extends State<Appoint> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            // margin: const EdgeInsets.only(left: 75),
-            child: Image.asset(
-              'assets/logo/appbar_icon.png',
-              fit: BoxFit.fitWidth,
-              height: 40,
-            ),
+          Image.asset(
+            'assets/logo/appbar_icon.png',
+            fit: BoxFit.fitWidth,
+            height: 40,
           )
         ],
       ),
@@ -314,32 +296,10 @@ class _AppointState extends State<Appoint> {
             // ToastComponent.showDialog("Coming soon", context,
             //     gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);
           },
-          child: Visibility(
-            visible: false,
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
-              child: Image.asset(
-                'assets/bell.png',
-                height: 16,
-                color: MyTheme.dark_grey,
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            // Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //   return Address();
-            // }));
-          },
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
-            child: Icon(
-              Icons.settings,
-              color: MyTheme.accent_color,
-            ),
+                const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
+            child: Icon(Icons.settings_outlined),
           ),
         ),
       ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:medi_remainder/my_theme.dart';
 import 'package:medi_remainder/screen/home.dart';
+import 'package:medi_remainder/screen/pill_remainder/home.dart';
 import 'package:medi_remainder/screen/view-all-medicines.dart';
 import 'package:medi_remainder/screen/appoint.dart';
 import 'package:pandabar/pandabar.dart';
@@ -17,7 +18,7 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  var _children = [Home(), Appoint(),ViewAllMedicines(), Home(), Home()];
+  var _children = [PillHome(), Appoint(),ViewAllMedicines(), Home(), Home()];
 
   void onTapped(int i) {
     // if (!is_logged_in.$ && (i == 4 || i == 3)) {

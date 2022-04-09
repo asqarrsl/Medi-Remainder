@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medi_remainder/my_theme.dart';
 import '../Models/medicine-model.dart';
 import '../Services/medicine-service.dart';
 
@@ -17,13 +18,14 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
   bool _validatePrice = false;
   bool _validateQuantity = false;
   var medicineService = MedicineService();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Add New Medicine'),
-      ),
+      key: _scaffoldKey,
+      appBar: buildAppBar(statusBarHeight, context),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(16.0),
@@ -132,6 +134,47 @@ class _AddNewMedicineState extends State<AddNewMedicine> {
           ),
         ),
       ),
+    );
+  }
+
+  AppBar buildAppBar(double statusBarHeight, BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      leading: GestureDetector(
+          onTap: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+          child: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          )),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset(
+            'assets/logo/appbar_icon.png',
+            fit: BoxFit.fitWidth,
+            height: 40,
+          )
+        ],
+      ),
+      elevation: 0.0,
+      titleSpacing: 0,
+      actions: <Widget>[
+        InkWell(
+          onTap: () {
+            // ToastComponent.showDialog("Coming soon", context,
+            //     gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);
+          },
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
+            child: Icon(Icons.settings_outlined),
+          ),
+        ),
+      ],
     );
   }
 }

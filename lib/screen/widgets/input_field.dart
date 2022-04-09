@@ -23,7 +23,7 @@ class InputField extends StatelessWidget {
         children: [
           Text(
             title,
-            style:titleStyle,
+            // style:titleStyle,
           ),
           Container(
             height: 52,
@@ -44,10 +44,10 @@ class InputField extends StatelessWidget {
                       autofocus: false,
                       cursorColor: MyTheme.font_grey,
                       controller: controller,
-                      style: subtitleStyle,
+                      // style: subtitleStyle,
                       decoration: InputDecoration(
                         hintText: hint,
-                        hintStyle: subtitleStyle,
+                        // hintStyle: subtitleStyle,
                         focusedBorder: UnderlineInputBorder(
                              borderSide: BorderSide(
                              color:MyTheme.white,
