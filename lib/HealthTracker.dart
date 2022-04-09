@@ -1,19 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:medi_remainder/my_theme.dart';
 import 'BMI_Screen.dart';
 
 class WidgetCard extends StatelessWidget {
-  const WidgetCard({Key? key}) : super(key: key);
+  WidgetCard({Key? key}) : super(key: key);
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
-        title: Center(child: Text('Health Tracker')),
+        backgroundColor: Colors.white,
+        leading: GestureDetector(
+          onTap: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+          child: Builder(
+            builder: (context) => Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 18.0, horizontal: 0.0),
+              child: Container(
+                child: Image.asset(
+                  'assets/icons/hamburger.png',
+                  height: 16,
+                  //color: MyTheme.dark_grey,
+                  color: MyTheme.dark_grey,
+                ),
+              ),
+            ),
+          ),
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              'assets/logo/appbar_icon.png',
+              fit: BoxFit.fitWidth,
+              height: 40,
+            )
+          ],
+        ),
+        elevation: 0.0,
+        titleSpacing: 0,
+        actions: <Widget>[
+          InkWell(
+            onTap: () {
+              // ToastComponent.showDialog("Coming soon", context,
+              //     gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);
+            },
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
+              child: Icon(Icons.settings_outlined),
+            ),
+          ),
+        ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "A"),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "B"),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "C")
-      ]),
       body: GestureDetector(
         onTap: () {
           Navigator.of(context)

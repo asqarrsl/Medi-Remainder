@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:flutter/services.dart';
-import 'package:medi_remainder/app_config.dart';
 import 'package:medi_remainder/db/dbHelper.dart';
 import 'package:medi_remainder/my_theme.dart';
 import 'package:medi_remainder/screen/splash.dart';
@@ -34,7 +33,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: AppConfig.app_name,
+      title: "Medi Remainder",
       theme: ThemeData(
         primaryColor: MyTheme.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,

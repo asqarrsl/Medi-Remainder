@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:medi_remainder/HealthTracker.dart';
 import 'package:medi_remainder/my_theme.dart';
 import 'package:medi_remainder/screen/home.dart';
 import 'package:medi_remainder/screen/pill_remainder/home.dart';
@@ -18,13 +19,9 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _currentIndex = 0;
-  var _children = [PillHome(), Appoint(),ViewAllMedicines(), Home(), Home()];
+  var _children = [PillHome(), Appoint(),ViewAllMedicines(), WidgetCard(), Home()];
 
   void onTapped(int i) {
-    // if (!is_logged_in.$ && (i == 4 || i == 3)) {
-    //   Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-    //   return;
-    // }
     setState(() {
       _currentIndex = i;
     });
@@ -32,8 +29,6 @@ class _MainState extends State<Main> {
   }
 
   void initState() {
-    // TODO: implement initState
-    //re appear statusbar in case it was not there in the previous page
     SystemChrome.setEnabledSystemUIOverlays(
         [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.initState();
@@ -69,9 +64,7 @@ class _MainState extends State<Main> {
         },
         onFabButtonPressed: () {
           // Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //   return Filter(
-          //     selected_filter: "products",
-          //   );
+          //   
           // }));
         },
       ),
