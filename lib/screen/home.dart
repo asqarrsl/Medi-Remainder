@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:medi_remainder/Models/medicine-model.dart';
 import 'package:medi_remainder/Services/medicine-service.dart';
 import 'package:medi_remainder/my_theme.dart';
 import 'package:medi_remainder/screen/view-all-medicines.dart';
 import 'package:medi_remainder/uisections/drawer.dart';
 import 'package:uuid/uuid.dart';
+=======
+import 'package:medi_remainder/my_theme.dart';
+import 'package:medi_remainder/uisections/drawer.dart';
+>>>>>>> main
 
 class Home extends StatefulWidget {
   Home({Key? key, this.title, this.showBackButton = false}) : super(key: key);
@@ -17,6 +22,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+<<<<<<< HEAD
   var medicineNameController = TextEditingController();
   var medicineQuantityController = TextEditingController();
   var medicinePriceController = TextEditingController();
@@ -24,6 +30,8 @@ class _HomeState extends State<Home> {
   bool _validatePrice = false;
   bool _validateQuantity = false;
   var medicineService= MedicineService();
+=======
+>>>>>>> main
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   int _currentSlider = 0;
   ScrollController? _featuredProductScrollController;
@@ -50,6 +58,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.white,
       appBar: buildAppBar(statusBarHeight, context),
       drawer: MainDrawer(),
+<<<<<<< HEAD
       // body: SingleChildScrollView(
       //   child: Container(
       //     padding: const EdgeInsets.all(16.0),
@@ -263,6 +272,20 @@ class _HomeState extends State<Home> {
       //     ),
       //   ],
       // ),
+=======
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Container(),
+              Container(
+                height: 80,
+              )
+            ]),
+          ),
+        ],
+      ),
+>>>>>>> main
     );
   }
 
@@ -295,6 +318,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
       ),
+<<<<<<< HEAD
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -308,6 +332,22 @@ class _HomeState extends State<Home> {
             // ),
           )
         ],
+=======
+      title: SingleChildScrollView( 
+        child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            margin: const EdgeInsets.only(left: 75),
+            child: Image.asset(
+              'assets/logo/appbar_icon.png',
+              fit: BoxFit.fitWidth,
+              height: 40,
+            ),
+          )
+        ],
+      )
+>>>>>>> main
       ),
       elevation: 0.0,
       titleSpacing: 0,
