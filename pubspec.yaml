@@ -32,6 +32,8 @@ dependencies:
   intl: ^0.17.0
   splash_screen_view: ^3.0.0
   pandabar: ^0.1.2
+  snippet_coder_utils: ^1.0.10
+
   path_provider: ^2.0.9
   uuid:
 
