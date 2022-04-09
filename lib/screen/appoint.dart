@@ -12,9 +12,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-
 class Appoint extends StatefulWidget {
-  Appoint({Key? key, this.title, this.showBackButton = false}) : super(key: key);
+  Appoint({Key? key, this.title, this.showBackButton = false})
+      : super(key: key);
 
   final String? title;
   bool showBackButton;
@@ -32,7 +32,7 @@ class _AppointState extends State<Appoint> {
   ScrollController? _featuredProductScrollController;
 
   get style => null;
-  
+
   @override
   void initState() {
     // TODO: implement initState
@@ -46,10 +46,7 @@ class _AppointState extends State<Appoint> {
     super.dispose();
   }
 
-
-final  List <Map>  field=[
-
-];
+  final List<Map> field = [];
 
   @override
   Widget build(BuildContext context) {
@@ -69,41 +66,36 @@ final  List <Map>  field=[
                 children: [
                   _addAppointBar(),
                   _addDateBar(),
-                 
+
                   SizedBox(
                     height: 500,
                     width: MediaQuery.of(context).size.width,
-                        child: ListView.builder(
+                    child: ListView.builder(
                       itemCount: _appointmentController.appointmentList.length,
-                      itemBuilder: (_,index){
+                      itemBuilder: (_, index) {
                         // ignore: avoid_print
                         print(_appointmentController.appointmentList.length);
-                        Appointment appointment = _appointmentController.appointmentList[index];
+                        Appointment appointment =
+                            _appointmentController.appointmentList[index];
                         return AnimationConfiguration.staggeredList(
-                          position: index, 
-                          child: SlideAnimation(
-                            child:FadeInAnimation(
-                              child: Row(
-                                children: [
-                                  GestureDetector(
-                                    
-                                    onTap:()  {
-                                        _showBottomSheet(context, appointment);
-                                    },
-                                    child:AppointmentTile(appointment)
-                                    ,
-                                  )
-                                ],)
+                            position: index,
+                            child: SlideAnimation(
+                                child: FadeInAnimation(
+                                    child: Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    _showBottomSheet(context, appointment);
+                                  },
+                                  child: AppointmentTile(appointment),
                                 )
-                                )
-                                );
-                         
-                        
+                              ],
+                            ))));
                       },
-                      ),
-                      )
-                 //_showAppointments(),
-              ],
+                    ),
+                  )
+                  //_showAppointments(),
+                ],
               ),
               Container(
                 height: 80,
@@ -114,168 +106,166 @@ final  List <Map>  field=[
       ),
     );
   }
-_showBottomSheet(BuildContext context, Appointment appointment){
-  Get.bottomSheet(
-    Container(
-      padding: const EdgeInsets.only(top:4),
-      height:appointment.isCompleted==1?
-      MediaQuery.of(context).size.height*0.24:
-       MediaQuery.of(context).size.height*0.32,
-       color: Get.isDarkMode?darkGreyClr:Colors.white,
 
-    child:Column(children: [
-         Container(
-           height:6,
-           width:120,
-           decoration: BoxDecoration(
-             borderRadius: BorderRadius.circular(10),
-             color:Get.isDarkMode?Colors.grey[600]:Colors.grey[300]
-                        ),
-                        ),
-                        Spacer(),
-                        appointment.isCompleted==1
-                        ?Container()
-                          :_bottomSheetButton(
-                            label:"Appointment Completed",
-                            onTap:(){
-                              _appointmentController.markAppointmentCompleted(appointment.id!);
-                              Get.back();
-                              
-                            },
-                            clr:MyTheme.whatsapp_color,
-                            context: context
-                          ),
-                          _bottomSheetButton(
-                            label:"Delete Appointment",
-                            onTap:(){
-                              _appointmentController.delete(appointment);
-                              
-                              Get.back();
-                            },
-                            clr:Colors.red[300]!,
-                            context: context
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          _bottomSheetButton(
-                            label:"Close",
-                            onTap:(){
-                              Get.back();
-                            },
-                            clr:Colors.white,
-                            isClose: true,
-                            context: context
-                          ),
-                          SizedBox(
-                            height:10,
-                          )
-                        
-       ],)
-    ),
-  )  ;
-
-}
-_bottomSheetButton({
-  required String label,
-    required Function()? onTap,
-      required Color clr,
-        bool isClose = false,
-       required BuildContext context,
-}){
-    return GestureDetector(
-      onTap: onTap,
-      child:Container(
-        margin:const EdgeInsets.symmetric(vertical: 4),
-        height:55,
-        width:MediaQuery.of(context).size.width*0.9,
-        
-        decoration: BoxDecoration(
-          border:Border.all(
-            width:2,
-            color:isClose==true?Get.isDarkMode?Colors.grey[600]!:Colors.grey[300]!:clr
-          ),
-          borderRadius: BorderRadius.circular(20),
-          color:isClose==true?Colors.transparent:clr
-        ),
-        child: Center(
-          child: Text(
-            label,
-            style: isClose?titleStyle:titleStyle.copyWith(color:Colors.white),
-          ),
-        ),
-        )
-    );
-}
-_addDateBar(){
-  return Container(
-                    margin: const EdgeInsets.only(top:20, left:20),
-                    child: DatePicker(
-                      DateTime.now(),
-                      height: 100,
-                      width:80,
-                      initialSelectedDate:DateTime.now(),
-                      selectionColor:MyTheme.splash_screen_color,
-                      dateTextStyle: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color:MyTheme.dark_grey
-                      )
-                      ),
-                      dayTextStyle: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color:MyTheme.dark_grey
-                      )
-                      ),
-                      monthTextStyle: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color:MyTheme.dark_grey
-                      )
-                      ),
-                      onDateChange: (date){
-                        _selectedDate= date;
+  _showBottomSheet(BuildContext context, Appointment appointment) {
+    Get.bottomSheet(
+      Container(
+          padding: const EdgeInsets.only(top: 4),
+          height: appointment.isCompleted == 1
+              ? MediaQuery.of(context).size.height * 0.24
+              : MediaQuery.of(context).size.height * 0.32,
+          color: Get.isDarkMode ? darkGreyClr : Colors.white,
+          child: Column(
+            children: [
+              Container(
+                height: 6,
+                width: 120,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color:
+                        Get.isDarkMode ? Colors.grey[600] : Colors.grey[300]),
+              ),
+              Spacer(),
+              appointment.isCompleted == 1
+                  ? Container()
+                  : _bottomSheetButton(
+                      label: "Appointment Completed",
+                      onTap: () {
+                        _appointmentController
+                            .markAppointmentCompleted(appointment.id!);
+                        Get.back();
                       },
-                    ),
-                  ); 
-}
-_addAppointBar(){
-  return Container(
-                    margin: const EdgeInsets.only(left:20, right:20, top:10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                            Text(DateFormat.yMMMMd().format(DateTime.now()),
-                             style:subHeadingStyle,
-                            ),
-                            Text("Today",
-                            style: HeadingStyle,),
+                      clr: MyTheme.whatsapp_color,
+                      context: context),
+              _bottomSheetButton(
+                  label: "Delete Appointment",
+                  onTap: () {
+                    _appointmentController.delete(appointment);
 
+                    Get.back();
+                  },
+                  clr: Colors.red[300]!,
+                  context: context),
+              SizedBox(
+                height: 20,
+              ),
+              _bottomSheetButton(
+                  label: "Close",
+                  onTap: () {
+                    Get.back();
+                  },
+                  clr: Colors.white,
+                  isClose: true,
+                  context: context),
+              SizedBox(
+                height: 10,
+              )
+            ],
+          )),
+    );
+  }
 
-                          ],),
-                        ),
-                        Button(label:"+Add Reminder", onTap:() async{
-                          await Navigator.push(context,MaterialPageRoute( builder: (context) => AddAppointment()));
-                          _appointmentController.getAppointments();
+  _bottomSheetButton({
+    required String label,
+    required Function()? onTap,
+    required Color clr,
+    bool isClose = false,
+    required BuildContext context,
+  }) {
+    return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 4),
+          height: 55,
+          width: MediaQuery.of(context).size.width * 0.9,
+          decoration: BoxDecoration(
+              border: Border.all(
+                  width: 2,
+                  color: isClose == true
+                      ? Get.isDarkMode
+                          ? Colors.grey[600]!
+                          : Colors.grey[300]!
+                      : clr),
+              borderRadius: BorderRadius.circular(20),
+              color: isClose == true ? Colors.transparent : clr),
+          child: Center(
+            child: Text(
+              label,
+              style: isClose
+                  ? titleStyle
+                  : titleStyle.copyWith(color: Colors.white),
+            ),
+          ),
+        ));
+  }
 
-                        
-                        })
-                      ],
-                    ),
-                  );
-}
+  _addDateBar() {
+    return Container(
+      margin: const EdgeInsets.only(top: 20, left: 20),
+      child: DatePicker(
+        DateTime.now(),
+        height: 100,
+        width: 80,
+        initialSelectedDate: DateTime.now(),
+        selectionColor: MyTheme.splash_screen_color,
+        dateTextStyle: GoogleFonts.lato(
+            textStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: MyTheme.dark_grey)),
+        dayTextStyle: GoogleFonts.lato(
+            textStyle: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: MyTheme.dark_grey)),
+        monthTextStyle: GoogleFonts.lato(
+            textStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: MyTheme.dark_grey)),
+        onDateChange: (date) {
+          _selectedDate = date;
+        },
+      ),
+    );
+  }
+
+  _addAppointBar() {
+    return Container(
+      margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  DateFormat.yMMMMd().format(DateTime.now()),
+                  style: subHeadingStyle,
+                ),
+                Text(
+                  "Today",
+                  style: HeadingStyle,
+                ),
+              ],
+            ),
+          ),
+          Button(
+              label: "+Add Reminder",
+              onTap: () async {
+                await Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddAppointment()));
+                _appointmentController.getAppointments();
+              })
+        ],
+      ),
+    );
+  }
+
   AppBar buildAppBar(double statusBarHeight, BuildContext context) {
     return AppBar(
-      backgroundColor : Colors.white,
+      backgroundColor: Colors.white,
       leading: GestureDetector(
         onTap: () {
           _scaffoldKey.currentState?.openDrawer();
@@ -291,8 +281,7 @@ _addAppointBar(){
                 builder: (context) => Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 18.0, horizontal: 0.0),
-                  child: 
-                  Container(
+                  child: Container(
                     margin: const EdgeInsets.only(),
                     child: Image.asset(
                       'assets/icons/hamburger.png',
@@ -308,7 +297,7 @@ _addAppointBar(){
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-           // margin: const EdgeInsets.only(left: 75),
+            // margin: const EdgeInsets.only(left: 75),
             child: Image.asset(
               'assets/logo/appbar_icon.png',
               fit: BoxFit.fitWidth,

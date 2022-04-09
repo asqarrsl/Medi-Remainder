@@ -5,6 +5,7 @@ import 'package:medi_remainder/app_config.dart';
 import 'package:medi_remainder/db/dbHelper.dart';
 import 'package:medi_remainder/my_theme.dart';
 import 'package:medi_remainder/screen/splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 int? initScreen;
 

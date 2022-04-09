@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:medi_remainder/Models/medicine-model.dart';
 import 'package:medi_remainder/Services/medicine-service.dart';
 import 'package:medi_remainder/my_theme.dart';
 import 'package:medi_remainder/screen/view-all-medicines.dart';
 import 'package:medi_remainder/uisections/drawer.dart';
 import 'package:uuid/uuid.dart';
-=======
-import 'package:medi_remainder/my_theme.dart';
-import 'package:medi_remainder/uisections/drawer.dart';
->>>>>>> main
 
 class Home extends StatefulWidget {
   Home({Key? key, this.title, this.showBackButton = false}) : super(key: key);
@@ -22,7 +17,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-<<<<<<< HEAD
   var medicineNameController = TextEditingController();
   var medicineQuantityController = TextEditingController();
   var medicinePriceController = TextEditingController();
@@ -30,8 +24,6 @@ class _HomeState extends State<Home> {
   bool _validatePrice = false;
   bool _validateQuantity = false;
   var medicineService= MedicineService();
-=======
->>>>>>> main
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   int _currentSlider = 0;
   ScrollController? _featuredProductScrollController;
