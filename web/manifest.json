@@ -1,6 +1,6 @@
 {
-    "name": "medi_remainder",
-    "short_name": "medi_remainder",
+    "name": "flutter_project",
+    "short_name": "flutter_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
